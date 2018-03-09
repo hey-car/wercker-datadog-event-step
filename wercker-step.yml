@@ -1,5 +1,5 @@
 name: datadog-event
-version: 1.0.4
+version: 0.1.0
 description: Send an event to datadog
 keywords:
   - notification
@@ -14,10 +14,13 @@ properties:
     required: true
   text:
     type: string
-    required: true
+    default: ""
   alert_type:
     type: string
     default: "success"
+  tags:
+    type: string
+    required: true
   priority:
     type: string
     default: "low"

@@ -18,6 +18,11 @@ if [ ! -n "$WERCKER_DATADOG_EVENT_PRIORITY" ]; then
   exit 1
 fi
 
+if [ ! -n "$WERCKER_DATADOG_EVENT_TAGS" ]; then
+  error 'Please specify tags property'
+  exit 1
+fi
+
 if [ ! -n "$WERCKER_DATADOG_EVENT_ALERT_TYPE" ]; then
   error 'Please specify alert_type property'
   exit 1
@@ -29,7 +34,7 @@ curl  -X POST -H "Content-type: application/json" \
       \"title\":            \"$WERCKER_DATADOG_EVENT_TITLE\",
       \"text\":             \"$WERCKER_DATADOG_EVENT_TEXT\",
       \"priority\":         \"$WERCKER_DATADOG_EVENT_PRIORITY\",
+      \"tags\":             \"$WERCKER_DATADOG_EVENT_TAGS\",
       \"alert_type\":       \"$WERCKER_DATADOG_EVENT_ALERT_TYPE\",
-      \"source_type_name\": \"jenkins\"
   }" \
 "https://app.datadoghq.com/api/v1/events?api_key=$WERCKER_DATADOG_EVENT_TOKEN"
