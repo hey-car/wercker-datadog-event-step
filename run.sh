@@ -35,6 +35,6 @@ curl  -X POST -H "Content-type: application/json" \
       \"text\":             \"$WERCKER_DATADOG_EVENT_TEXT\",
       \"priority\":         \"$WERCKER_DATADOG_EVENT_PRIORITY\",
       \"tags\":             \"$WERCKER_DATADOG_EVENT_TAGS\",
-      \"alert_type\":       \"$WERCKER_DATADOG_EVENT_ALERT_TYPE\",
+      \"alert_type\":       \"$WERCKER_DATADOG_EVENT_ALERT_TYPE\"
   }" \
 "https://app.datadoghq.com/api/v1/events?api_key=$WERCKER_DATADOG_EVENT_TOKEN"

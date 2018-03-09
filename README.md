@@ -21,7 +21,7 @@ Send an event to datadog
                 text: MyApp has been marked as passed
                 alert_type: success
                 priority: low
-                tags: result:success target:production
+                tags: result:success,target:production
 
 ## License
 
